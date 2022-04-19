@@ -1,20 +1,12 @@
 pipeline{
     agent none
-    stages{
-        stage('Build Master'){
-            when{
-                branch 'master'
+    stages {
+        stage('Build Tags') {
+            when {
+                changelog ".*some_text.*"
             }
-            steps{
-                echo "Build the master codes"
-            }
-        }
-        stage('Build Dev'){
-            when{
-                branch 'dev'
-            }
-            steps{
-                echo "Building the Dev codes"
+            steps {
+                echo "Hello Build Tags"
             }
         }
     }
